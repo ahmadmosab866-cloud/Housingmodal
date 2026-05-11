@@ -59,7 +59,7 @@ with open("scaler.pkl", "rb") as f:
 st.title("🏡 House Price Predictor")
 
 # 1. User Inputs from your screenshot
-area = st.number_input("Total Area (sqft)", value=1500)
+area = st.number_input("Total Area (sqft)", value=20000)
 bedrooms = st.number_input("Bedrooms", value=3)
 bathrooms = st.number_input("Bathrooms", value=2)
 stories = st.number_input("Stories", value=1)
