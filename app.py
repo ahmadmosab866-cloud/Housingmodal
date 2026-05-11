@@ -29,19 +29,39 @@ airconditioning = st.selectbox("Has Air Conditioning?", ["Yes", "No"])
 
 # 3. Prepare the data exactly like the training data
 # We convert Yes/No to 1/0 to match the model's expectation
+# input_data = {
+#     'area': area,
+#     'bedrooms': bedrooms,
+#     'bathrooms': bathrooms,
+#     'stories': stories,
+#     'parking': parking,
+#     'mainroad_yes': 1 if mainroad == "Yes" else 0,
+#     'guestroom_yes': 1 if guestroom == "Yes" else 0,
+#     'airconditioning_yes': 1 if airconditioning == "Yes" else 0
+# }
+
+# # Create a DataFrame to keep feature names in order
+# input_df = pd.DataFrame([input_data])
+# Create a dictionary with ALL columns from your X_train
 input_data = {
     'area': area,
     'bedrooms': bedrooms,
     'bathrooms': bathrooms,
     'stories': stories,
-    'parking': parking,
     'mainroad_yes': 1 if mainroad == "Yes" else 0,
     'guestroom_yes': 1 if guestroom == "Yes" else 0,
-    'airconditioning_yes': 1 if airconditioning == "Yes" else 0
+    # Add EVERY other column that was in your X_train here...
+    'parking': parking,
+    'airconditioning_yes': 1 if airconditioning == "Yes" else 0,
+    'prefarea_yes': 0, # Even if you don't have an input for it, set it to 0
 }
 
-# Create a DataFrame to keep feature names in order
 input_df = pd.DataFrame([input_data])
+
+# Ensure the column order is exactly the same as training
+# input_df = input_df[['area', 'bedrooms', 'bathrooms', ...]] 
+
+scaled_features = scaler.transform(input_df) # This should now work!
 
 # 4. Prediction
 if st.button("Predict Price"):
