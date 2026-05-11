@@ -16,16 +16,16 @@ st.write("Enter the details of the house to estimate its price:")
 
 # 2. Inputs based on typical Housing dataset features
 # Adjust these names if your columns are different
-area = st.number_input("Total Area (sqft)", min_value=100, value=1500)
-bedrooms = st.number_input("Number of Bedrooms", 1, 10, 3)
-bathrooms = st.number_input("Number of Bathrooms", 1, 5, 2)
-stories = st.number_input("Number of Stories (Floors)", 1, 5, 1)
-parking = st.number_input("Parking Spaces", 0, 5, 1)
+# area = st.number_input("Total Area (sqft)", min_value=100, value=20000)
+# bedrooms = st.number_input("Number of Bedrooms", 1, 10, 3)
+# bathrooms = st.number_input("Number of Bathrooms", 1, 5, 2)
+# stories = st.number_input("Number of Stories (Floors)", 1, 5, 1)
+# parking = st.number_input("Parking Spaces", 0, 5, 1)
 
-# Categorical inputs (Assuming you used get_dummies in training)
-mainroad = st.selectbox("Main Road Access?", ["Yes", "No"])
-guestroom = st.selectbox("Has Guestroom?", ["Yes", "No"])
-airconditioning = st.selectbox("Has Air Conditioning?", ["Yes", "No"])
+# # Categorical inputs (Assuming you used get_dummies in training)
+# mainroad = st.selectbox("Main Road Access?", ["Yes", "No"])
+# guestroom = st.selectbox("Has Guestroom?", ["Yes", "No"])
+# airconditioning = st.selectbox("Has Air Conditioning?", ["Yes", "No"])
 
 # 3. Prepare the data exactly like the training data
 # We convert Yes/No to 1/0 to match the model's expectation
