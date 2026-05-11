@@ -43,6 +43,7 @@ airconditioning = st.selectbox("Has Air Conditioning?", ["Yes", "No"])
 # # Create a DataFrame to keep feature names in order
 # input_df = pd.DataFrame([input_data])
 # Create a dictionary with ALL columns from your X_train
+# Create dictionary with EVERY column from your training
 input_data = {
     'area': area,
     'bedrooms': bedrooms,
@@ -50,18 +51,29 @@ input_data = {
     'stories': stories,
     'mainroad_yes': 1 if mainroad == "Yes" else 0,
     'guestroom_yes': 1 if guestroom == "Yes" else 0,
-    # Add EVERY other column that was in your X_train here...
-    'parking': parking,
+    'basement_yes': 0,        # ADD THESE IF THEY WERE IN YOUR DATA
+    'hotwaterheating_yes': 0, # SET TO 0 IF NOT USED IN APP
     'airconditioning_yes': 1 if airconditioning == "Yes" else 0,
-    'prefarea_yes': 0, # Even if you don't have an input for it, set it to 0
+    'parking': parking,
+    'prefarea_yes': 0,
+    'furnishingstatus_semi-furnished': 0,
+    'furnishingstatus_unfurnished': 0
 }
 
+# Convert to DataFrame
 input_df = pd.DataFrame([input_data])
 
-# Ensure the column order is exactly the same as training
-# input_df = input_df[['area', 'bedrooms', 'bathrooms', ...]] 
+# VERY IMPORTANT: Reorder columns to match exactly
+# Use the list of names you see in your error logs
+column_order = ['area', 'bedrooms', 'bathrooms', 'stories', 'mainroad_yes', 
+                'guestroom_yes', 'basement_yes', 'hotwaterheating_yes', 
+                'airconditioning_yes', 'parking', 'prefarea_yes', 
+                'furnishingstatus_semi-furnished', 'furnishingstatus_unfurnished']
 
-scaled_features = scaler.transform(input_df) # This should now work!
+input_df = input_df[column_order]
+
+# Now this will work!
+scaled_features = scaler.transform(input_df)
 
 # 4. Prediction
 if st.button("Predict Price"):
