@@ -103,13 +103,13 @@ if st.button("Predict Price"):
     st.success(f"### 💰 Estimated House Price: ${price:,.2f}")
 
 # 4. Prediction
-if st.button("Predict Price"):
+# if st.button("Predict Price"):
     # Scale the features
-    scaled_features = scaler.transform(input_df)
+    # scaled_features = scaler.transform(input_df)
     
     # Get prediction
-    prediction = model.predict(scaled_features)
+    # prediction = model.predict(scaled_features)
     
     # Display the result as currency
-    price = float(prediction[0])
-    st.success(f"### 💰 Estimated House Price: ${price:,.2f}")
+    # price = float(prediction[0])
+    # st.success(f"### 💰 Estimated House Price: ${price:,.2f}")
