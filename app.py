@@ -1,18 +1,18 @@
-import streamlit as st
-import pickle
-import numpy as np
-import pandas as pd
+# import streamlit as st
+# import pickle
+# import numpy as np
+# import pandas as pd
 
 # 1. Load the Housing model and scaler
 # Note: Removed "/content/" so it works on GitHub/Streamlit Cloud
-with open("housing_model.pkl", "rb") as f:
-    model = pickle.load(f)
+# with open("housing_model.pkl", "rb") as f:
+#     model = pickle.load(f)
 
-with open("scaler.pkl", "rb") as f:
-    scaler = pickle.load(f)
+# with open("scaler.pkl", "rb") as f:
+#     scaler = pickle.load(f)
 
-st.title("🏡 House Price Predictor")
-st.write("Enter the details of the house to estimate its price:")
+# st.title("🏡 House Price Predictor")
+# st.write("Enter the details of the house to estimate its price:")
 
 # 2. Inputs based on typical Housing dataset features
 # Adjust these names if your columns are different
